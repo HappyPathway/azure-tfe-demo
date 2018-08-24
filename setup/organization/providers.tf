@@ -1,0 +1,5 @@
+provider "tfe" {}
+
+provider "vault" {
+  
+}

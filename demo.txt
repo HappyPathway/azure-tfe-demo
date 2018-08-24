@@ -1,0 +1,21 @@
+Nvidia Terraform Notes
+
+packer -> azure images
+How much bake?  SaltStack. 
+
+What would a compelling demo look like?
+building an image in packer, have it availabe in Azure. 
+Deploy machines with that iamge through Terraform. 
+
+Audience: 
+ - Cloud Architect
+ - Security
+ - Automation Team 
+   - SaltStack - developer their own app, might be sensitive.
+
+- Reason: 
+    strong desire within devops team to move away from new (SaltStack) tool. 
+    pain-points: security, no guard-rails, cant control capacity.
+
+Salt Cloud Vs. Terraform:
+  - doesn't manage state.
