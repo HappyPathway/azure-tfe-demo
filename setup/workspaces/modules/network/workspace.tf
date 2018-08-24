@@ -1,5 +1,5 @@
 resource "tfe_workspace" "Network" {
-  name = "Network"
+  name = "AzureNetwork"
   organization = "${var.organization}"
   vcs_repo = {
       identifier = "${var.github_org}/${var.network_repo}"

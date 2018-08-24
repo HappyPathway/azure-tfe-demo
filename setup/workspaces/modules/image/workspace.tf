@@ -1,5 +1,5 @@
 resource "tfe_workspace" "CreateImage" {
-  name = "CreateImage"
+  name = "CreateAzureImage"
   organization = "${var.organization}"
   vcs_repo = {
       identifier = "${var.github_org}/${var.create_image_repo}"

@@ -78,3 +78,8 @@ variable "dev_team_members" {
   type = "list"
   default = ["darnold-dev"]
 }
+
+variable "tfe_hostname" {
+  type = "string"
+  default = "app.terraform.io"
+}
