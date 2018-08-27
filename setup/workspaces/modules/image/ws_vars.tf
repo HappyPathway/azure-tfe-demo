@@ -21,7 +21,7 @@ resource "tfe_variable" "service_version_image" {
 
 resource "tfe_variable" "network_ws_image" {
   key = "network_ws"
-  value = "Network"
+  value = "AzureNetwork"
   category = "terraform"
   workspace_id = "${tfe_workspace.CreateImage.id}"
 }

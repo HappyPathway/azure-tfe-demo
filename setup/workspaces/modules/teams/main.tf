@@ -11,7 +11,7 @@ resource "tfe_team_members" "member" {
 }
 
 resource "tfe_team_access" "access" {
-    count = "${length(var.workspace_ids)}"
+    count = "${var.workspaces}"
     access = "${var.team_permissions}"
     team_id = "${tfe_team.team.id}"
     workspace_id = "${element(var.workspace_ids, count.index)}"

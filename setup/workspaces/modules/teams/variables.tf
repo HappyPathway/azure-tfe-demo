@@ -18,3 +18,5 @@ variable "workspace_ids" {
     description = "Workspace ID"
 }
 variable "organization" {}
+
+variable "workspaces" {}

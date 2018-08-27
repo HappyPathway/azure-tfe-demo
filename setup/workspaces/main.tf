@@ -56,6 +56,7 @@ module "admin_team" {
     organization = "${var.organization}"
     team_name = "${var.organization}-admin"
     source = "./modules/teams"
+    workspaces = 3
     workspace_ids = [
         "${module.deploy.workspace_id}",
         "${module.network.workspace_id}",
@@ -69,6 +70,7 @@ module "ops_team" {
     organization = "${var.organization}"
     team_name = "${var.organization}-ops"
     source = "./modules/teams"
+    workspaces = 3
     workspace_ids = [
         "${module.deploy.workspace_id}",
         "${module.network.workspace_id}",
@@ -82,6 +84,7 @@ module "dev_team" {
     organization = "${var.organization}"
     team_name = "${var.organization}-dev"
     source = "./modules/teams"
+    workspaces = 3
     workspace_ids = [
         "${module.deploy.workspace_id}",
         "${module.network.workspace_id}",

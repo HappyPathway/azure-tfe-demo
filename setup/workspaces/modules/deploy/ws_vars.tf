@@ -21,7 +21,7 @@ resource "tfe_variable" "service_version" {
 
 resource "tfe_variable" "network_ws" {
   key = "network_ws"
-  value = "Network"
+  value = "AzureNetwork"
   category = "terraform"
   workspace_id = "${tfe_workspace.DeployImage.id}"
 }
@@ -33,9 +33,17 @@ resource "tfe_variable" "organization" {
   workspace_id = "${tfe_workspace.DeployImage.id}"
 }
 
+resource "tfe_variable" "vault_addr" {
+  key = "vault_addr"
+  value = "${var.vault_addr}"
+  category = "terraform"
+  workspace_id = "${tfe_workspace.DeployImage.id}"
+  sensitive = true
+}
+
 resource "tfe_variable" "vault_token" {
   key = "vault_token"
-  value = "${var.vault_addr}"
+  value = "${var.vault_token}"
   category = "terraform"
   workspace_id = "${tfe_workspace.DeployImage.id}"
   sensitive = true
