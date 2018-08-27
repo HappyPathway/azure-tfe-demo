@@ -32,3 +32,8 @@ variable "service_version" {}
 variable "instance_size" {}
 
 variable "env" {}
+
+variable "repo_src_owner" {
+  default = "HappyPathway"
+  description = "Who owns the Source repos?"
+}

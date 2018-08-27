@@ -14,6 +14,14 @@ The location of the credentials is specified by setting the vault_github_tokens 
     "secret": "<oauth_app_client_secret>"
 }
 ```
+Code from the deploy, image, and network modules will look for Github Environment Variables. These variables will be used by the github provider to clone the source repos and create new repos in 
+specified users github account. 
+```bash
+export GITHUB_ORGANIZATION=${ORG}
+export GITHUB_TOKEN=${TOKEN}
+```
+
+
 
 ### Azure Credentials
 The credentials can be anywhere in Vault, but must have the following schema.
@@ -26,3 +34,15 @@ The location of the credentials is specified by setting the vault_azure_credenti
     "tenant_id": "${ARM_TENANT_ID}"
 }
 ```
+
+### Terraform Enterprise Credentials
+These credentials are not stored in Vault, instead these are stored on the local system. Normally, users will create the API Token in Terraform and store in a ~/.terraformrc file. This file has the schema:
+```hcl
+credentials "app.terraform.io" {
+  token = "<USER_API_TOKEN>"
+}
+```
+This needs to be a User token and not an Org token. 
+
+### Vault Credentials
+It is expected to have VAULT_ADDR and VAULT_TOKEN set as your environment variables. The Terraform Vault Provider will use these variables to authentcate against the Vault server in order to look up the Github and Azure credentials.

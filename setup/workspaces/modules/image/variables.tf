@@ -22,7 +22,7 @@ variable "oauth_token" {
 
 variable "vault_azure_credentials_path" {}
 variable "vault_github_tokens" {}
-variable "network_ws" {}
+
 
 variable "vault_token" {}
 
@@ -30,3 +30,8 @@ variable "vault_addr" {}
 
 variable "service_name" {}
 variable "service_version" {}
+
+variable "repo_src_owner" {
+  default = "HappyPathway"
+  description = "Who owns the Source repos?"
+}
