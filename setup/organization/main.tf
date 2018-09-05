@@ -10,18 +10,18 @@ resource "tfe_organization_token" "token" {
   ]
 }
 
-resource "tfe_organization_vcs" "github" {
-  organization = "${var.organization}"
-  key = "${data.vault_generic_secret.github_tokens.data["key"]}"
-  secret = "${data.vault_generic_secret.github_tokens.data["secret"]}"
-  service_provider = "github"
-  http_url = "https://github.com"
-  api_url = "https://api.github.com"
-  depends_on = [
-    "tfe_organization.organization",
-    "tfe_organization_token.token"
-  ]
-}
+#resource "tfe_organization_vcs" "github" {
+#  organization = "${var.organization}"
+#  key = "${data.vault_generic_secret.github_tokens.data["key"]}"
+#  secret = "${data.vault_generic_secret.github_tokens.data["secret"]}"
+#  service_provider = "github"
+#  http_url = "https://github.com"
+#  api_url = "https://api.github.com"
+#  depends_on = [
+#    "tfe_organization.organization",
+#    "tfe_organization_token.token"
+#  ]
+#}
 
 data "template_file" "org_env" {
     vars = {
