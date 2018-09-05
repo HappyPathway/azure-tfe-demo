@@ -46,3 +46,45 @@ This needs to be a User token and not an Org token.
 
 ### Vault Credentials
 It is expected to have VAULT_ADDR and VAULT_TOKEN set as your environment variables. The Terraform Vault Provider will use these variables to authentcate against the Vault server in order to look up the Github and Azure credentials.
+
+
+# Usage
+## Organzation Setup
+### Create Organization
+First, you'll want to create an organization. You will do this by changing into the setup/organizations directory and running `terraform apply`. You will need to specify the name of the organization. and the admin email address.
+```bash
+terraform apply -var organization=Darnold-Demos-Trial -var organization_admin_email darnold@hashicorp.com
+```
+
+### Wire up the VCS Connection
+After creating the organization, you will need to do a few tasks manually. *this is subject to change as the Terraform Development team is working to provide a few more terraform resources that will take care of this.
+
+First, in your browser, open the following url.
+```bash
+https://app.terraform.io/app/${TFE_ORG}/settings/version-control
+```
+
+![alt text](./assets/tfe_vsc.png "Terraform Enterprise Organization VCS Setup Page")
+Copy the Callback URL and use it to add to the Oauth App Callback in Github.
+
+![alt text](./assets/github_oauth.png "Github OAuth App Settings Page")
+
+
+### Retrieve Token
+Once you have created the new organization and have wired up the VCS Connection. You will need to retrieve your OAuth Token. You will use the included script, oauth_tokens.py in order to retrieve your oauth token. 
+```bash
+python oauth_tokens.py --org=Darnold-Demos-Trial
+# Response:
+Token: <token>
+```
+
+## Workspace Setup
+### Create Workspaces
+Variables:
+env=Name of Resource Group in Azure
+oath_token=Token as output from oauth_tokens.py script
+organization=Name of Terraform Enterprise Organization as created from previous steps.
+```bash
+cd workspaces;
+terraform apply -var env=<env> -var oauth_token=<oauth_token> -var organization=<organization>
+```

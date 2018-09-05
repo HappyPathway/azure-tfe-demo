@@ -16,7 +16,6 @@ module "network" {
     env = "${var.env}"
     vault_azure_credentials_path = "${var.vault_azure_credentials_path}"
     vault_github_tokens = "${var.vault_github_tokens}"
-    vault_addr = "${var.vault_addr}"
 }
 
 module "image" {
@@ -28,7 +27,6 @@ module "image" {
     oauth_token = "${var.oauth_token}"
     vault_addr = "${var.vault_addr}"
     vault_token = "${module.vault.vault_token}"
-    network_ws = "${module.network.workspace_id}"
     vault_azure_credentials_path = "${var.vault_azure_credentials_path}"
     vault_github_tokens = "${var.vault_github_tokens}"
     service_name = "${var.service_name}"
