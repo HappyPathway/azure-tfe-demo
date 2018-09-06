@@ -80,10 +80,12 @@ Token: <token>
 
 ## Workspace Setup
 ### Create Workspaces
+```yaml
 Variables:
-env=Name of Resource Group in Azure
-oath_token=Token as output from oauth_tokens.py script
-organization=Name of Terraform Enterprise Organization as created from previous steps.
+env: Name of Resource Group in Azure
+oath_token: Token as output from oauth_tokens.py script
+organization: Name of Terraform Enterprise Organization as created from previous steps.
+```
 ```bash
 cd workspaces;
 terraform apply -var env=<env> -var oauth_token=<oauth_token> -var organization=<organization>
