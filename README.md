@@ -57,14 +57,14 @@ terraform apply -var organization=Darnold-Demos-Trial -var organization_admin_em
 ```
 
 ### Wire up the VCS Connection
-After creating the organization, you will need to do a few tasks manually. *this is subject to change as the Terraform Development team is working to provide a few more terraform resources that will take care of this.
+After creating the organization, you will need to do a few tasks manually. *this is subject to change as the Terraform Development team is working to provide a few more terraform resources that will take care of this.*
 
 First, in your browser, open the following url.
 ```bash
 https://app.terraform.io/app/${TFE_ORG}/settings/version-control
 ```
 
-![alt text](./assets/tfe_vsc.png "Terraform Enterprise Organization VCS Setup Page")
+![alt text](./assets/tfe_vcs.png "Terraform Enterprise Organization VCS Setup Page")
 Copy the Callback URL and use it to add to the Oauth App Callback in Github.
 
 ![alt text](./assets/github_oauth.png "Github OAuth App Settings Page")
