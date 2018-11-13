@@ -30,7 +30,7 @@ variable "create_image_repo_branch" {
 
 
 variable "deploy_image_repo" {
-    default = "azure-server-pool"
+    default = "terraform-azure-server-pool"
 }
 variable "deploy_image_repo_branch" {
     default = "master"
